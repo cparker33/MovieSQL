@@ -1,0 +1,66 @@
+
+
+// -------------------------
+
+SELECT * FROM movies;
+
+// -------------------------
+
+SELECT title, movieid
+FROM movies
+LIMIT 10;
+
+// -------------------------
+
+SELECT title
+FROM movies
+WHERE movieid = 485;
+
+// -------------------------
+
+SELECT movieid
+FROM movies
+WHERE title = 'Made in America (1993)';
+
+// -------------------------
+
+SELECT title
+FROM movies
+ORDER BY title ASC 
+LIMIT 10;
+
+// -------------------------
+
+SELECT title
+FROM movies
+WHERE title LIKE '%(2002)%'
+
+// ------------------------
+
+SELECT title
+FROM movies
+WHERE title LIKE '%Godfather%'
+LIMIT 1;
+
+// ------------------------
+
+SELECT genres
+FROM movies
+WHERE genres LIKE '%Comedy%'
+
+// ------------------------
+
+SELECT title
+FROM movies
+WHERE genres LIKE '%Comedy%' AND title LIKE '%Death%'
+
+// ------------------------
+
+
+
+
+
+
+
+
+
