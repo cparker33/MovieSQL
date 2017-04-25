@@ -56,11 +56,45 @@ WHERE genres LIKE '%Comedy%' AND title LIKE '%Death%'
 
 // ------------------------
 
+SELECT title
+FROM movies
+WHERE (title LIKE '%(2001)%' OR title LIKE '%(2002)%') AND title LIKE '%Super%'
 
+// ------------------------
+//   JOIN
+// ------------------------
 
+SELECT m.title, r.rating
+FROM movies m
+INNER JOIN ratings r ON m.movieid = r.movieid
+WHERE m.title = 'Godfather, The (1972)'
 
+// ------------------------
 
+SELECT m.title, r.rating, r.timestamp
+FROM movies m
+INNER JOIN ratings r ON m.movieid = r.movieid
+WHERE m.title LIKE '%Godfather, The (1972)%'
+ORDER BY r.timestamp DESC
 
+// ------------------------
 
+SELECT m.title, l.imdbid
+FROM movies m
+INNER JOIN links l ON m.movieid = l.movieid
+WHERE m.title LIKE '%(2005)%' AND m.genres LIKE '%Comedy%'
 
+// ------------------------
 
+SELECT m.title, r.rating
+FROM movies m
+LEFT JOIN ratings r ON m.movieid = r.movieid
+WHERE r.rating IS null
+
+// ------------------------
+
+SELECT m.title, g.genres
+FROM movie_genre mg
+JOIN movies m ON mg.movieid = m.movieid
+JOIN genre g ON  mg.genre_id = g.id
+WHERE mg.genre_id = 15
