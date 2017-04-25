@@ -58,6 +58,12 @@ WHERE genres LIKE '%Comedy%' AND title LIKE '%Death%'
 
 SELECT title
 FROM movies
+WHERE genres LIKE '%Comedy%' AND LIKE '%(2000)%’)
+
+// ------------------------
+
+SELECT title
+FROM movies
 WHERE (title LIKE '%(2001)%' OR title LIKE '%(2002)%') AND title LIKE '%Super%'
 
 // ------------------------
